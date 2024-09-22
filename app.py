@@ -4,7 +4,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import requests
-
+import time
+#Carregando o modelo
 model = joblib.load('model.pkl')
 
 def predict_risco(carteira, operacoes, estado, modalidade):
@@ -16,6 +17,29 @@ def predict_risco(carteira, operacoes, estado, modalidade):
     })
     prediction = model.predict(data)
     return prediction[0]
+#Começando a interatividade com o usuário
+background_color = st.selectbox("Escolha uma cor de fundo para a página:", ["Light Grey", "Blue"])
+    
+colormap = {
+    "Light Grey": "#fafafa",
+    "Blue": "#d6e3e9"
+}
+
+if st.checkbox('Deseja utilizar essa cor para a página?'):
+            progress_bar = st.progress(0)
+            for counter in range(1, 101):
+                time.sleep(0.015)
+                progress_bar.progress(counter)
+            with st.spinner('Ajustado a cor...'):
+                time.sleep(3)
+
+st.markdown(f"""
+<style>
+.stApp {{
+    background-color: {colormap[background_color]};
+}}
+</style>
+""", unsafe_allow_html=True)
 
 st.title('RiskMap 🗺')
 st.header('Previsão de Risco de Crédito por Tamanho da Carteira, Região e Modalidades')
