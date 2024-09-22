@@ -23,7 +23,7 @@ def risco_alto(risco):
 caminho = 'https://olinda.bcb.gov.br/olinda/servico/scr_sub_regiao/versao/v1/odata/scr_sub_regiao(DataBase=@DataBase)?@DataBase=202407&$format=json&$select=DATA_BASE,CLIENTE,ESTADO,SUB_REGIAO,MODALIDADE,RISCO,OPERACOES,CARTEIRA'
 df_bcb = get_bcb_data(caminho)
 df_bcb['RISCO'] = df_bcb['RISCO'].apply(risco_alto)
-df_bcb = df_bcb.drop(columns=['DATA_BASE'])
+df_bcb = df_bcb.drop(columns=['DATA_BASE','SUB_REGIAO'])
 
 X = df_bcb.drop(columns=['RISCO'])
 y = df_bcb['RISCO']
@@ -31,7 +31,7 @@ y = df_bcb['RISCO']
 preprocessor = ColumnTransformer(
     transformers=[
         ('num', StandardScaler(), ['OPERACOES', 'CARTEIRA']),
-        ('cat', OneHotEncoder(handle_unknown='ignore'), ['ESTADO', 'SUB_REGIAO', 'MODALIDADE'])
+        ('cat', OneHotEncoder(handle_unknown='ignore'), ['ESTADO','MODALIDADE'])
     ])
 
 model = Pipeline(steps=[
