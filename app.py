@@ -54,7 +54,7 @@ st.write('''
          ''')
 
 #Adicionando os dados extraídos da página do serasa
-df_serasa = pd.read_csv('.\data\informacoes_inadimplencia.csv')
+df_serasa = pd.read_csv('data\informacoes_inadimplencia.csv')
 
 for i in range(3):
     curiosidade = f'Curiosidade n° {i}: {df_serasa[i]}'
