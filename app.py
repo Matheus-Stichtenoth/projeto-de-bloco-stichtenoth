@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import requests
 import time
-from bs4 import BeautifulSoup
 
 #Carregando o modelo
 model = joblib.load('model.pkl')
@@ -43,25 +42,8 @@ if st.checkbox('Deseja utilizar essa cor para a página?'):
             </style>
             """, unsafe_allow_html=True)
 
-#Executando o Scrapping do site do Serasa, com informações de inadimplência no Brasil
+#Adicionando os dados extraídos da página do serasa
 
-url_serasa = "https://www.serasa.com.br/limpa-nome-online/blog/mapa-da-inadimplencia-e-renogociacao-de-dividas-no-brasil/"
-
-response = requests.get(url_serasa)
-
-if response.status_code == 200:
-    
-    soup = BeautifulSoup(response.text, 'html.parser')
-    
-    #O conteúdo está dentro de '<p>', então coletei todos os dados desse índice
-    paragraphs = soup.find_all('p')
-    
-    # Lista para armazenar os textos
-    texts = [p.get_text() for p in paragraphs]
-    
-    df_serasa = pd.DataFrame(texts, columns=['conteudo'])
-
-    df_serasa.to_csv('data/informacoes_inadimplencia.csv')
 
 st.title('RiskMap 🗺')
 st.header('Previsão de Risco de Crédito por Tamanho da Carteira, Região e Modalidades')
@@ -73,9 +55,9 @@ st.write('''
          Antes de começar, o que acha que ver alguns dados interessantes sobre a inadimplência?
          ''')
 
-for i in range(3):
-    curiosidade = f'Curiosidade n° {i+1}: {df_serasa[i+1]}'
-    st.write(curiosidade)
+#for i in range(3):
+#    curiosidade = f'Curiosidade n° {i+1}: {df_serasa[i+1]}'
+#    st.write(curiosidade)
 
 st.write('Fonte: https://www.serasa.com.br/limpa-nome-online/blog/mapa-da-inadimplencia-e-renogociacao-de-dividas-no-brasil/')
 
