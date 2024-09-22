@@ -33,13 +33,13 @@ if st.checkbox('Deseja utilizar essa cor para a página?'):
             with st.spinner('Ajustado a cor...'):
                 time.sleep(3)
 
-st.markdown(f"""
-<style>
-.stApp {{
-    background-color: {colormap[background_color]};
-}}
-</style>
-""", unsafe_allow_html=True)
+            st.markdown(f"""
+            <style>
+            .stApp {{
+                background-color: {colormap[background_color]};
+            }}
+            </style>
+            """, unsafe_allow_html=True)
 
 st.title('RiskMap 🗺')
 st.header('Previsão de Risco de Crédito por Tamanho da Carteira, Região e Modalidades')
