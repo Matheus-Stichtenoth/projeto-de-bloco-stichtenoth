@@ -19,10 +19,10 @@ def predict_risco(carteira, operacoes, estado, modalidade):
     prediction = model.predict(data)
     return prediction[0]
 #Começando a interatividade com o usuário
-background_color = st.selectbox("Escolha uma cor de fundo para a página:", ["Light Grey", "Blue"])
+background_color = st.selectbox("Escolha uma cor de fundo para a página:", ["Sand", "Blue"])
     
 colormap = {
-    "Light Grey": "#fafafa",
+    "Sand": "#e2d9bc",
     "Blue": "#d6e3e9"
 }
 
@@ -38,6 +38,13 @@ if st.checkbox('Deseja utilizar essa cor para a página?'):
             <style>
             .stApp {{
                 background-color: {colormap[background_color]};
+            }}
+            </style>
+            """, unsafe_allow_html=True)
+else: st.markdown(f"""
+            <style>
+            .stApp {{
+                background-color: {"#fafafa"};
             }}
             </style>
             """, unsafe_allow_html=True)
