@@ -7,12 +7,11 @@ import requests
 
 model = joblib.load('model.pkl')
 
-def predict_risco(carteira, operacoes, estado, sub_regiao, modalidade):
+def predict_risco(carteira, operacoes, estado, modalidade):
     data = pd.DataFrame({
         'CARTEIRA': [carteira],
         'OPERACOES': [operacoes],
         'ESTADO': [estado],
-        'SUB_REGIAO': [sub_regiao],
         'MODALIDADE': [modalidade]
     })
     prediction = model.predict(data)
@@ -52,17 +51,15 @@ def risco_alto(risco):
 caminho = 'https://olinda.bcb.gov.br/olinda/servico/scr_sub_regiao/versao/v1/odata/scr_sub_regiao(DataBase=@DataBase)?@DataBase=202407&$format=json&$select=DATA_BASE,CLIENTE,ESTADO,SUB_REGIAO,MODALIDADE,RISCO,OPERACOES,CARTEIRA'
 df_bcb = get_bcb_data(caminho)
 df_bcb['RISCO'] = df_bcb['RISCO'].apply(risco_alto)
-df_bcb = df_bcb.drop(columns=['DATA_BASE'])
+df_bcb = df_bcb.drop(columns=['DATA_BASE','SUB_REGIAO'])
 
-sub_regioes = df_bcb['SUB_REGIAO'].unique()
 modalidades = df_bcb['MODALIDADE'].unique()
 
 estado = st.selectbox('ESTADO', options=sorted(estados))
-sub_regiao = st.selectbox('SUB REGIAO', options=sorted(sub_regioes))
 modalidade = st.selectbox('MODALIDADE', options=sorted(modalidades))
 
 if st.button('Prever'):
-    risco = predict_risco(carteira, operacoes, estado, sub_regiao, modalidade)
+    risco = predict_risco(carteira, operacoes, estado, modalidade)
     st.write(f'O risco previsto é: {risco}')
 
 # Adicionando o gráfico de correlação
