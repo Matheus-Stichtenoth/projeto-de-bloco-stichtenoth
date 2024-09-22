@@ -73,6 +73,21 @@ st.download_button(label='Clique aqui para baixar o arquivo com TODAS as curiosi
                            data=df_serasa.to_csv(index=False),
                            file_name=f'curiosidades_serasa.csv')
 
+st.write('Quer complementar com mais informações? Utilize o botão abaixo para adicionar mais dados para à análise!')
+
+uploaded_file = st.file_uploader('Escolha um arquivo CSV (deve conter apenas uma coluna!)', type='csv')
+
+if uploaded_file is not None:
+    # Carregando o CSV em um DataFrame
+    df_upload = pd.read_csv(uploaded_file)
+    
+    # Verificando se o DataFrame tem apenas uma coluna
+    if len(df_upload.columns) == 1:
+        st.write('Informações novas:')
+        st.write(df_upload.iloc[:, 0])  # Exibe a única coluna do DataFrame
+    else:
+        st.error('O arquivo deve conter apenas uma coluna.')
+
 st.write(
 '''Agora que já consumiu alguns conteúdos interessante sobre inadimplência, 
 preencha os dados abaixo e depois clique em prever, após isso, você terá a resposta se é uma característica de uma carteira de alto ou baixo risco.
