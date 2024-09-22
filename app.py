@@ -6,8 +6,24 @@ import seaborn as sns
 import requests
 import time
 
+#Carregando o modelo com cache
+@st.cache_data
+def load_model():
+    return joblib.load('model.pkl')
+
+#Carregando os dados com cache
+@st.cache_data
+def get_bcb_data(file_path):
+    response = requests.get(file_path)
+    if response.status_code == 200:
+        data = response.json()
+        df = pd.json_normalize(data['value'])
+        return df.dropna()
+    else:
+        raise ValueError(f"Erro na solicitação: {response.status_code}")
+
 #Carregando o modelo
-model = joblib.load('model.pkl')
+model = load_model()
 
 def predict_risco(carteira, operacoes, estado, modalidade):
     data = pd.DataFrame({
@@ -18,6 +34,7 @@ def predict_risco(carteira, operacoes, estado, modalidade):
     })
     prediction = model.predict(data)
     return prediction[0]
+
 #Começando a interatividade com o usuário
 background_color = st.selectbox("Escolha uma cor de fundo para a página:", ["Sand", "Blue"])
     
@@ -75,7 +92,7 @@ st.download_button(label='Clique aqui para baixar o arquivo com TODAS as curiosi
 
 st.write('Quer complementar com mais informações? Utilize o botão abaixo para adicionar mais dados para à análise!')
 
-uploaded_file = st.file_uploader('Escolha um arquivo CSV (deve conter apenas uma coluna!)', type='csv')
+uploaded_file = st.file_uploader('Escolha um arquivo CSV (deve conter apenas uma coluna (com cabeçalho!))', type='csv')
 
 if uploaded_file is not None:
     # Carregando o CSV em um DataFrame
