@@ -42,9 +42,7 @@ if st.checkbox('Deseja utilizar essa cor para a página?'):
             </style>
             """, unsafe_allow_html=True)
 
-#Adicionando os dados extraídos da página do serasa
-
-
+#Definindo título e cabeçalho da página
 st.title('RiskMap 🗺')
 st.header('Previsão de Risco de Crédito por Tamanho da Carteira, Região e Modalidades')
 st.write('''
@@ -55,9 +53,12 @@ st.write('''
          Antes de começar, o que acha que ver alguns dados interessantes sobre a inadimplência?
          ''')
 
-#for i in range(3):
-#    curiosidade = f'Curiosidade n° {i+1}: {df_serasa[i+1]}'
-#    st.write(curiosidade)
+#Adicionando os dados extraídos da página do serasa
+df_serasa = pd.DataFrame('.\data\informacoes_inadimplencia.csv')
+
+for i in range(3):
+    curiosidade = f'Curiosidade n° {i}: {df_serasa[i]}'
+    st.write(curiosidade)
 
 st.write('Fonte: https://www.serasa.com.br/limpa-nome-online/blog/mapa-da-inadimplencia-e-renogociacao-de-dividas-no-brasil/')
 
