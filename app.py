@@ -57,7 +57,7 @@ st.write('''
 df_serasa = pd.read_csv('data/informacoes_inadimplencia.csv')
 
 for i in range(3):
-    curiosidade = f'Curiosidade n° {i}: {df_serasa["conteudo"][i]}'
+    curiosidade = f'Curiosidade n° {i+1}: {df_serasa["conteudo"][i+1]}'
     st.write(curiosidade)
 
 st.write('Fonte: https://www.serasa.com.br/limpa-nome-online/blog/mapa-da-inadimplencia-e-renogociacao-de-dividas-no-brasil/')
