@@ -62,6 +62,10 @@ for i in range(3):
 
 st.write('Fonte: https://www.serasa.com.br/limpa-nome-online/blog/mapa-da-inadimplencia-e-renogociacao-de-dividas-no-brasil/')
 
+st.download_button(label='Clique aqui para baixar o arquivo com TODAS as curiosidades ▶',
+                           data=df_serasa.to_csv(index=False),
+                           file_name=f'curiosidades_serasa.csv')
+
 st.write(
 '''Agora que já consumiu alguns conteúdos interessante sobre inadimplência, 
 preencha os dados abaixo e depois clique em prever, após isso, você terá a resposta se é uma característica de uma carteira de alto ou baixo risco.
