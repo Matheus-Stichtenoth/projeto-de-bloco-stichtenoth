@@ -43,7 +43,7 @@ colormap = {
     "Blue": "#d6e3e9"
 }
 
-if st.checkbox('Deseja utilizar essa cor para a página?'):
+if st.checkbox('Deseja utilizar a cor acima para o fundo da página?'):
             progress_bar = st.progress(0)
             for counter in range(1, 101):
                 time.sleep(0.015)
@@ -81,7 +81,7 @@ st.write('''
 df_serasa = pd.read_csv('data/informacoes_inadimplencia.csv')
 
 for i in range(3):
-    curiosidade = f'Curiosidade n° {i+1}: {df_serasa["conteudo"][i+1]}'
+    curiosidade = f'💭 Curiosidade n° {i+1}: {df_serasa["conteudo"][i+1]}'
     st.write(curiosidade)
 
 st.write('Fonte: https://www.serasa.com.br/limpa-nome-online/blog/mapa-da-inadimplencia-e-renogociacao-de-dividas-no-brasil/')
