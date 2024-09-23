@@ -1,0 +1,33 @@
+# Project Charter
+
+## Business background
+
+Meus clientes serão as instutições financeiras, como bancos e cooperativas de crédito
+
+## Scope
+O problema que será resolvido é a indetificação de estados e subregiões com riscos altos de emprestarmos dinheiros e se tornar inadimplentes. 
+Isso faz com que o associado/cliente deixe de gerar a receita por inadimplência, e também gera uma despesa de provisão, ou seja, é um ofensor direto das receitas de uma instituição de crédito. 
+
+## Personnel
+Apenas eu irei participar desse projeto.
+Sou o Matheus, tenho 20 anos e estou desenvolvendo meu conhecimento no ramo do sistema financeiro nacional.
+	
+## Metrics
+A métrica principal é que conseguiremos agrupar os estados de acordo com seus riscos, e dizer se, é uma área arriscada ou não de emprestar crédito.
+
+## Plan
+Fase 1: Encontrar uma base de dados que nos forneça essas informações
+Fase 2: Extrai-la e trata-la para poder iniciar a modelagem de agrupamento
+Fase 3: Verificar os resultados
+Fase 4: Retornar para a modelagem e ajustar o que for necessário
+Fase 5: Criação do aplicativo
+
+Atualização*
+
+Fase 6: Adicionar interatividade no projeto
+Fase 7: Melhorar a interface
+Fase 8: Trazer curiosidades sobre o assunto de inadimplência, com viés de informar os usuários finais sobre o assunto
+
+## Architecture
+Esperamos um dados que tenha a última atualização das carteiras de crédito do SFN, e com a atualização mais recente possível.
+Será feito o consumo através de uma API, ou seja, qualquer máquina e qualquer pessoa conseguirá rodar esse código para consumo da informação.
