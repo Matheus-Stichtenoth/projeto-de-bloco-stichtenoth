@@ -1,0 +1,16 @@
+Atividade 1:
+Revisão e Atualização da Documentação:
+
+
+Atividade 2: ✔
+Criação de uma Aplicação com Múltiplas Páginas:
+O que antes era apenas uma página, forá quebrado em 3, sendo elas: Home, Curiosidades e Simulador
+Entendi que faziam sentido as separações, já que a página de Curiosidades introduz muito bem o assunto, antes de iniciar com a simulação
+
+Atividade 3: ✔
+Extração de Dados de Páginas Dinâmicas (Web Scraping):
+Realizei no arquivo "scrapping_serasa.ipynb" o scrapping de todas as Curiosidades presentes no site. 
+O arquivo ficou offline, porém o scrapping funcionou perfeitamente.
+
+Atividade 4:
+Desenvolvimento de APIs com FastAPI:
