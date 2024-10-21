@@ -12,5 +12,12 @@ Extração de Dados de Páginas Dinâmicas (Web Scraping):
 Realizei no arquivo "scrapping_serasa.ipynb" o scrapping de todas as Curiosidades presentes no site. 
 O arquivo ficou offline, porém o scrapping funcionou perfeitamente.
 
-Atividade 4:
+Atividade 4: ✔
 Desenvolvimento de APIs com FastAPI:
+Solucionado no arquivo "api_inadimplencia.py", que lê o JSON das Curiosidades da inadimplência e retorna isso com o método GET na api. Bastar rodar o app e jogar o IP no navegador para funcionar.
+Caso dê erro, poderá utilizar o método 'netstat -ano | findstr :8000' que irá encontrar o processo que está sendo executada nessa porta, e depois matar esse processo com 'taskkill /PID <PID> /F' susbtituindo o '<PID>' pelo código que fica na direita
+
+Atividade 5:
+Preparação para Uso de Inteligência Artificial com LLMs:
+Minha ideia é utilizar um método para geração de texto, visto que, tenho as Curiosidades da inadimplência prontas! Utilizarei ela para treinar meu modelo, e depois gerar textos de resumos.
+Não tenho total noção ainda se isso será possível, mas imagino que sim.
