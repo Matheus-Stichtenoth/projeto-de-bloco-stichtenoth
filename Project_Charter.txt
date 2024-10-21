@@ -22,11 +22,18 @@ Fase 3: Verificar os resultados
 Fase 4: Retornar para a modelagem e ajustar o que for necessário
 Fase 5: Criação do aplicativo
 
-Atualização*
+Atualização TP2*
 
 Fase 6: Adicionar interatividade no projeto
 Fase 7: Melhorar a interface
 Fase 8: Trazer curiosidades sobre o assunto de inadimplência, com viés de informar os usuários finais sobre o assunto
+
+Atualização TP3*
+
+Fase 9: Utilização de Páginação para contar uma história que faça sentido, e deixe o aplicativo mais atrativo para os usuários, segmentando os assuntos
+Fase 10: Apontamento da página utilizada pra webscrapping não online, o arquivo está salvo offline
+Fase 11: Criação de API para acesso à base citada na fase 10. Rodará localmente, sem estar alocada a um servidor por enquanto
+Fase 12: Ideia de utilização de LLM no projeto, através de geração de textos baseado nas curiosidades da inadimplência.
 
 ## Architecture
 Esperamos um dados que tenha a última atualização das carteiras de crédito do SFN, e com a atualização mais recente possível.
