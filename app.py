@@ -77,12 +77,12 @@ def page_curiosidades() -> None:
 
     st.write(
     '''Agora que já consumiu alguns conteúdos interessante sobre inadimplência, 
-    preencha os dados abaixo e depois clique em prever, após isso, você terá a resposta se é uma característica de uma carteira de alto ou baixo risco.
+    acesse a página de "Simulador" para identificar o risco de crédito, baseado na característica da sua carteira.
     ''')
 
 def page_simulador() -> None:
-    carteira = st.number_input('CARTEIRA', min_value=0)
-    operacoes = st.number_input('OPERACOES', min_value=0)
+    carteira = st.number_input('CARTEIRA (Em R$)', min_value=0)
+    operacoes = st.number_input('OPERACOES (Em Quantidade)', min_value=0)
 
     estados = [
         'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 
