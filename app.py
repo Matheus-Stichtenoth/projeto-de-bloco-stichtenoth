@@ -115,7 +115,6 @@ def page_simulador() -> None:
 
     if st.button('Prever'):
         risco = predict_risco(carteira, operacoes, estado, modalidade)
-        st.write(f'{risco}')
         if risco == '1':
             st.write(f'As características informadas acima tendem a se tornar inadimplente.')
         else:
