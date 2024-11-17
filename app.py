@@ -115,7 +115,11 @@ def page_simulador() -> None:
 
     if st.button('Prever'):
         risco = predict_risco(carteira, operacoes, estado, modalidade)
-        st.write(f'O risco previsto é: {risco}')
+        if risco == 1:
+            st.write(f'As características informadas acima tendem a se tornar inadimplente.')
+        else:
+            st.write(f'As características informadas acima não têm tendência de inadimplência.')
+        ##st.write(f'O risco previsto é: {risco}')
 
     # Adicionando o gráfico de correlação
     st.subheader('Gráfico de Correlação entre Volume de Carteira e Quantidade de Operações')
